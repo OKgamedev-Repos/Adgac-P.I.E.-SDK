@@ -1,0 +1,79 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 57b671465862801f96e44db56b84c3ef, type: 3}
+  m_Name: Sand Storm 2
+  m_EditorClassIdentifier:
+  lightingModel: 0
+  sunCopyColor: 1
+  density: 0.545
+  noiseStrength: 1
+  height: 12
+  heightFallOff: 0.6
+  baselineHeight: 0
+  distance: 0
+  distanceFallOff: 0
+  maxFogLength: 1000
+  maxFogLengthFallOff: 0
+  baselineRelativeToCamera: 0
+  baselineRelativeToCameraDelay: 0
+  noiseScale: 3
+  noiseSparse: 0
+  noiseFinalMultiplier: 1
+  alpha: 0.96
+  color: {r: 0.609, g: 0.609, b: 0.609, a: 1}
+  deepObscurance: 1
+  specularColor: {r: 0.589, g: 0.621, b: 0.207, a: 1}
+  specularThreshold: 0.6
+  specularIntensity: 0.505
+  lightDirection: {x: -1, y: 0, z: -1}
+  lightIntensity: 0.581
+  lightColor: {r: 0.726, g: 0.742, b: 0.507, a: 1}
+  speed: 0.168
+  useRealTime: 0
+  windDirection: {x: 1, y: 0, z: 0}
+  turbulenceStrength: 0
+  useXYPlane: 0
+  skyColor: {r: 0.609, g: 0.609, b: 0.609, a: 0.55}
+  skyHaze: 0
+  skySpeed: 0
+  skyNoiseStrength: 0.729
+  skyNoiseScale: 1.5
+  skyAlpha: 0.55
+  skyDepth: 0.999
+  stepping: 5
+  steppingNear: 19.6
+  dithering: 1
+  ditherStrength: 1
+  downsamplingOverride: 0
+  downsampling: 1
+  forceComposition: 0
+  edgeImprove: 0
+  edgeThreshold: 0.0005
+  lightScatteringOverride: 0
+  lightScatteringEnabled: 0
+  lightScatteringDiffusion: 0.7
+  lightScatteringSpread: 0.686
+  lightScatteringSamples: 16
+  lightScatteringWeight: 1.9
+  lightScatteringIllumination: 18
+  lightScatteringDecay: 0.986
+  lightScatteringExposure: 0
+  lightScatteringTint: {r: 1, g: 1, b: 1, a: 0}
+  lightScatteringJittering: 0.5
+  lightScatteringBlurDownscale: 1
+  fogVoidOverride: 0
+  fogVoidTopology: 0
+  fogVoidFallOff: 1
+  fogVoidRadius: 0
+  fogVoidPosition: {x: 0, y: 0, z: 0}
+  fogVoidDepth: 0
+  fogVoidHeight: 0

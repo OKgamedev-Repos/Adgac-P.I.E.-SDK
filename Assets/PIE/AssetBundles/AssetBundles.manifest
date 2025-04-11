@@ -1,0 +1,10 @@
+ManifestFileVersion: 0
+CRC: 1045216179
+AssetBundleManifest:
+  AssetBundleInfos:
+    Info_0:
+      Name: mapimporter
+      Dependencies: {}
+    Info_1:
+      Name: testmap
+      Dependencies: {}
