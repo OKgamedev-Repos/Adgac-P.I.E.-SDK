@@ -47,7 +47,7 @@ public class EndGameScript : MonoBehaviour
         }
     }
 
-    private void EndGame()
+    public void EndGame()
     {
         Debug.Log("Ending game...");
 

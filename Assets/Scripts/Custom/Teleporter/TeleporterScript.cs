@@ -8,6 +8,8 @@ public class TeleporterScript : MonoBehaviour
 {
     [Header("Teleporter")]
     public Transform teleportTarget;
+    public bool grabWithLeftHand;
+    public bool grabWithRightHand;
 
     [Header("General Options")]
     public bool targetVisible;
@@ -43,7 +45,7 @@ public class TeleporterScript : MonoBehaviour
                 }
                 else
                 {
-                    DoTeleport();
+                    Teleport.TeleportPlayer(teleportTarget, grabWithLeftHand, grabWithRightHand);
                 }
             }
         }
@@ -60,34 +62,12 @@ public class TeleporterScript : MonoBehaviour
                 }
                 else
                 {
-                    DoTeleport();
+                    Teleport.TeleportPlayer(teleportTarget, grabWithLeftHand, grabWithRightHand);
                 }
             }
         }
     }
 
-    private void DoTeleport()
-    {
-        PlayerSpawn playerSpawn = FindObjectOfType<PlayerSpawn>();
-        ClimberMain climberMain = FindObjectOfType<ClimberMain>();
-        Body body = FindObjectOfType<Body>();
-
-        ReleaseSurface();
-        Vector2 targetPos = new Vector2(teleportTarget.transform.position.x, teleportTarget.transform.position.y);
-        playerSpawn.Respawn(targetPos);
-
-        StartCoroutine(ReleasePlayer());
-    }
-
-    private IEnumerator ReleasePlayer()
-    {
-        yield return new WaitForSeconds(0.1f);
-            
-        ClimberMain climberMain = FindObjectOfType<ClimberMain>();
-        climberMain.UnfreezeBody();
-        climberMain.arm_Right.listenToInput = true;
-        climberMain.arm_Left.listenToInput = true;
-    }
 
     private void Fade()
     {
@@ -115,7 +95,7 @@ public class TeleporterScript : MonoBehaviour
     {
         yield return StartCoroutine(FadeCoroutine(image, 0, 1, duration/2));
 
-        DoTeleport();
+        Teleport.TeleportPlayer(teleportTarget, grabWithLeftHand, grabWithRightHand);
         yield return new WaitForSeconds(duration / 2);
 
         yield return StartCoroutine(FadeCoroutine(image, 1, 0, duration/2));
@@ -138,21 +118,5 @@ public class TeleporterScript : MonoBehaviour
 
         color.a = endAlpha;
         image.color = color;
-    }
-
-    public void ReleaseSurface()
-    {
-        ClimberMain climberMain = FindObjectOfType<ClimberMain>();
-        ArmScript_v2 arm_Left = climberMain.arm_Left;
-        ArmScript_v2 arm_Right = climberMain.arm_Right;
-
-        MethodInfo method = arm_Left.GetType().GetMethod("ReleaseSurface",
-            BindingFlags.Instance | BindingFlags.NonPublic);
-
-        method.Invoke(arm_Left, new object[] { false, false });
-        method.Invoke(arm_Right, new object[] { false, false });
-
-        arm_Left.RemoveFrictionSurface(arm_Left.grabbedSurface);
-        arm_Right.RemoveFrictionSurface(arm_Right.grabbedSurface);
     }
 }
